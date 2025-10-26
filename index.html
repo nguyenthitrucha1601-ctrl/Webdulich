@@ -2,223 +2,264 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Du Lịch Sinh Viên | Du lịch giá rẻ, kinh nghiệm, lịch trình & mẹo du lịch</title>
     <meta name="description" content="Du lịch sinh viên, du lịch giá rẻ, kinh nghiệm du lịch, lịch trình du lịch, mẹo du lịch cho sinh viên. Khám phá Đà Nẵng, Hà Nội, Phú Quốc và nhiều mẹo tiết kiệm.">
-    <link rel="canonical" href="https://dulichsinhvien.rf.gd/index.html">
+
+    <!-- canonical / OG (Đã đồng bộ với domain hiện tại: webdulich.vercel.app) -->
+    <link rel="canonical" href="https://webdulich.vercel.app/index.html">
+    <link rel="icon" href="/favicon.ico" />
+
     <!-- Open Graph -->
     <meta property="og:title" content="Du Lịch Sinh Viên | Du lịch giá rẻ, kinh nghiệm, lịch trình & mẹo du lịch">
     <meta property="og:description" content="Du lịch sinh viên, du lịch giá rẻ, kinh nghiệm du lịch, lịch trình du lịch, mẹo du lịch cho sinh viên. Khám phá Đà Nẵng, Hà Nội, Phú Quốc và nhiều mẹo tiết kiệm.">
     <meta property="og:image" content="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1350&q=80">
-    <meta property="og:url" content="https://dulichsinhvien.rf.gd/index.html">
-    <!-- Twitter Card -->
+    <meta property="og:url" content="https://webdulich.vercel.app/index.html">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Du Lịch Sinh Viên | Du lịch giá rẻ, kinh nghiệm, lịch trình & mẹo du lịch">
     <meta name="twitter:description" content="Du lịch sinh viên, du lịch giá rẻ, kinh nghiệm du lịch, lịch trình du lịch, mẹo du lịch cho sinh viên. Khám phá Đà Nẵng, Hà Nội, Phú Quốc và nhiều mẹo tiết kiệm.">
     <meta name="twitter:image" content="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1350&q=80">
-        <!-- Social profiles structured data -->
-        <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            "name": "Du Lịch Sinh Viên",
-            "url": "https://dulichsinhvien.rf.gd/",
-            "sameAs": [
-                "https://www.facebook.com/dulichsinhvien",
-                "https://www.instagram.com/dulichsinhvien",
-                "https://twitter.com/dulichsv",
-                "https://www.linkedin.com/company/dulichsinhvien"
-            ]
-        }
-        </script>
+
+    <!-- Preload the hero image to improve LCP -->
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1350&q=80">
+
+    <!-- Structured data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Du Lịch Sinh Viên",
+        "url": "https://webdulich.vercel.app/",
+        "sameAs": [
+            "https://www.facebook.com/dulichsinhvien",
+            "https://www.instagram.com/dulichsinhvien",
+            "https://twitter.com/dulichsv",
+            "https://www.linkedin.com/company/dulichsinhvien"
+        ]
+    }
+    </script>
+
     <style>
+        /* Basic reset & typography */
+        *, *::before, *::after { box-sizing: border-box; }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
+            background: #f7f9fb;
+            color: #222;
+            -webkit-font-smoothing:antialiased;
         }
+
+        /* Skip link for keyboard users */
+        .skip-link {
+            position: absolute;
+            left: -999px;
+            top: auto;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
+        .skip-link:focus {
+            left: 10px;
+            top: 10px;
+            width: auto;
+            height: auto;
+            padding: 8px 12px;
+            background: #000;
+            color: #fff;
+            border-radius: 6px;
+            z-index: 9999;
+            text-decoration: none;
+        }
+
         header {
             background: linear-gradient(135deg, #00bcd4, #0097a7);
             color: #fff;
-            padding: 20px;
+            padding: 18px 16px;
             text-align: center;
         }
         header h1 {
             margin: 0;
-            font-size: 28px;
+            font-size: 22px;
+            line-height: 1.2;
         }
-        header nav a {
+        nav {
+            margin-top: 8px;
+            display:flex;
+            gap:10px;
+            justify-content:center;
+            flex-wrap:wrap;
+        }
+        nav a {
             color: #fff;
-            margin: 0 15px;
+            margin: 0 8px;
             text-decoration: none;
             font-weight: 600;
+            padding:6px 8px;
+            border-radius:6px;
         }
-        header nav a:hover {
-            text-decoration: underline;
+        nav a:hover, nav a:focus {
+            background: rgba(255,255,255,0.12);
+            outline: none;
         }
 
         .hero {
+            position: relative;
             text-align: center;
-            padding: 40px 20px;
-            background: url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1350&q=80") center/cover;
+            padding: 48px 20px;
+            background: url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1350&q=80") center/cover no-repeat;
             color: white;
         }
-        .hero h2 {
-            font-size: 36px;
-            margin-bottom: 10px;
-            text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35));
+            z-index: 0;
         }
-        .hero p {
-            font-size: 18px;
-            text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
-        }
+        .hero .inner { position: relative; z-index:1; max-width:1000px; margin:0 auto; }
+        .hero h2 { font-size: 32px; margin: 0 0 10px; text-shadow: 0 2px 8px rgba(0,0,0,0.45); }
+        .hero p { margin:0; font-size:16px; text-shadow: 0 1px 5px rgba(0,0,0,0.45); }
 
-        .container {
-            width: 90%;
-            max-width: 1100px;
-            margin: 30px auto;
-        }
-        .section-title {
-            font-size: 24px;
-            margin-bottom: 20px;
-            padding-left: 10px;
-            color: #333;
-        }
+        .container { width: 92%; max-width:1100px; margin: 28px auto; }
+        .section-title { font-size: 22px; margin-bottom: 16px; color:#222; }
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
+            gap: 18px;
         }
         .card {
-            background: white;
+            background: #fff;
             border-radius: 12px;
-            box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.06);
             overflow: hidden;
-            transition: transform 0.3s;
+            transition: transform .28s ease, box-shadow .28s ease;
         }
-        .card:hover {
-            transform: translateY(-5px);
-        }
-        .card img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-        }
-        .card h3 {
-            padding: 15px;
-            margin: 0;
-            font-size: 20px;
-        }
-        .card p {
-            padding: 0 15px 15px;
-            font-size: 14px;
-            color: #555;
-        }
+        .card:hover { transform: translateY(-6px); box-shadow: 0 10px 26px rgba(0,0,0,0.12); }
+        .card img { width:100%; height:180px; object-fit:cover; display:block; }
+        .card h3 { padding: 12px 16px 0; margin:0; font-size:18px; }
+        .card p { padding: 6px 16px 16px; margin:0; color:#555; font-size:14px; }
 
         .itinerary, .tips, .contact {
-            background: white;
-            padding: 25px;
-            margin-top: 25px;
-            border-radius: 12px;
-            box-shadow: 0 6px 18px rgba(0,0,0,0.1);
-        }
-        .itinerary ul li,
-        .tips ul li {
-            margin-bottom: 10px;
+            background:#fff; padding:22px; margin-top:18px; border-radius:12px; box-shadow: 0 6px 18px rgba(0,0,0,0.06);
         }
 
-        /* chỉnh ảnh + text bên phải */
-        .content-img {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 20px;
-            margin-bottom: 15px;
-        }
-        .content-img img {
-            width: 400px;
-            border-radius: 10px;
-        }
+        /* NEW: responsive two-column block for content + media */
+        /* ---------- content-img: improved layout for text + media ---------- */
+.content-img {
+    display: flex;
+    gap: 28px;
+    align-items: center;        /* <--- căn giữa theo chiều dọc */
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
 
-        .contact form {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-        .contact input, .contact textarea {
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-            font-size: 14px;
-        }
-        .contact button {
-            background: #00bcd4;
-            color: white;
-            border: none;
-            padding: 10px;
-            border-radius: 6px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-        .contact button:hover {
-            background: #0097a7;
-        }
+/* text column */
+.content-img .text {
+    flex: 1 1 420px;            /* cho phép co giãn nhưng giữ một min width */
+    min-width: 260px;
+}
 
-        /* Nút quay lại */
-        .back-home {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 8px 16px;
-            background: hsl(192, 94%, 51%);
-            color: white;
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: bold;
-            font-size: 14px;
-            transition: 0.3s;
-        }
-        .back-home:hover {
-            background: #455a64;
-        }
+.content-img .text ul {
+    margin: 0;
+    padding-left: 1.15rem;
+    color: #111;
+    font-size: 18px;            /* chữ to rõ hơn */
+    line-height: 1.9;           /* khoảng cách dòng rộng để đọc dễ */
+    font-weight: 600;
+}
 
-        footer {
-            text-align: center;
-            padding: 15px;
-            margin-top: 30px;
-            background: #0097a7;
-            color: white;
-        }
+/* media column */
+.content-img .media {
+    flex: 0 0 520px;            /* kích thước mục tiêu ảnh trên desktop */
+    max-width: 48%;
+    display:flex;
+    align-items:center;         /* giữu ảnh thẳng hàng */
+    justify-content:center;
+}
+
+.content-img .media img {
+    width: 100%;
+    height: auto;
+    display:block;
+    border-radius: 14px;        /* bo góc to hơn */
+    box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+    object-fit: cover;
+    border: 1px solid rgba(0,0,0,0.03);
+}
+
+/* nút/bộ hành động */
+.actions { margin-top:18px; display:flex; gap:14px; align-items:center; flex-wrap:wrap; }
+
+/* Responsive tweaks */
+@media (max-width: 900px) {
+    .content-img {
+        align-items: flex-start;  /* trên mobile chuyển sang top-aligned */
+        gap: 14px;
+    }
+    .content-img .media {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+    .content-img .text {
+        flex: 1 1 100%;
+    }
+    .content-img .text ul { font-size:16px; line-height:1.7; }
+}
+
+@media (max-width: 480px) {
+    .content-img .text ul { font-size:15.5px; line-height:1.6; }
+    .content-img .media img { border-radius:12px; }
+}
+
+        /* Buttons group */
+        .actions { margin-top:14px; display:flex; gap:12px; align-items:center; flex-wrap:wrap; }
         .more-btn {
-    display: inline-block;
-    padding: 10px 18px;
-    background: linear-gradient(135deg, #ff7e5f, #feb47b); /* gradient đẹp */
-    color: white;
-    text-decoration: none;
-    border-radius: 8px;
-    font-weight: bold;
-    font-size: 15px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    transition: background 0.3s ease, transform 0.2s ease;
-}
+            display:inline-block; padding:10px 18px; background: linear-gradient(135deg,#ff7e5f,#feb47b);
+            color:#fff; text-decoration:none; border-radius:12px; font-weight:700; box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+        }
+        .more-btn:hover { transform:translateY(-3px); box-shadow: 0 10px 26px rgba(0,0,0,0.12); }
+        .back-home {
+            display:inline-block; padding:10px 14px; background:hsl(192,94%,51%); color:white; text-decoration:none; border-radius:10px; font-weight:700;
+        }
+        .back-home:hover { background:#455a64; }
 
-.more-btn:hover {
-    background: linear-gradient(135deg, #feb47b, #ff7e5f); /* đổi màu gradient */
-    transform: translateY(-3px); /* hiệu ứng nhấc lên */
-    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
-}
+        .contact form { display:flex; flex-direction:column; gap:12px; }
+        .contact input, .contact textarea { padding:10px; border:1px solid #ddd; border-radius:6px; font-size:14px; }
+        .contact button { background:#00bcd4; color:#fff; border:none; padding:10px; border-radius:6px; font-weight:700; cursor:pointer; }
+        .contact button:hover { filter:brightness(.95); transform:translateY(-2px); }
 
-.more-btn:active {
-    transform: translateY(0);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-}
+        footer { text-align:center; padding:16px; margin-top:26px; background:#0097a7; color:#fff; }
 
+        /* Accessibility: focus style */
+        :focus { outline: 3px solid #ffd54f; outline-offset: 3px; }
+
+        /* Responsive breakpoints */
+        @media (max-width:1100px) {
+            .content-img .media { max-width: 48%; flex: 0 0 48%; }
+        }
+        @media (max-width:900px) {
+            .hero h2 { font-size:28px; }
+            .content-img { gap:16px; }
+            .content-img .media { max-width: 100%; flex: 1 1 100%; }
+            .content-img .text { flex: 1 1 100%; }
+        }
+        @media (max-width:480px) {
+            .hero h2 { font-size:22px; }
+            .section-title { font-size:20px; }
+            .more-btn, .back-home { width:auto; font-size:15px; padding:10px; }
+            .card img { height:160px; }
+        }
     </style>
 </head>
 <body>
-    <header id="home">
-        <h1>Du Lịch Sinh Viên - Du lịch giá rẻ, kinh nghiệm, lịch trình & mẹo du lịch</h1>
-        <nav>
+    <a class="skip-link" href="#main-content">Bỏ qua tới nội dung</a>
+
+    <header id="home" role="banner">
+        <h1>Du Lịch Sinh Viên</h1>
+        <nav role="navigation" aria-label="Menu chính">
             <a href="#dest">Điểm đến</a>
             <a href="#danang">Đà Nẵng</a>
             <a href="#hanoi">Hà Nội</a>
@@ -228,148 +269,219 @@
         </nav>
     </header>
 
-    <section class="hero">
-        <h2>Khám phá Việt Nam</h2>
-        <p>Hành trình tuyệt vời với chi phí sinh viên. Website chia sẻ <strong>du lịch sinh viên</strong>, <strong>du lịch giá rẻ</strong>, <strong>kinh nghiệm du lịch</strong>, <strong>lịch trình du lịch</strong> và <strong>mẹo du lịch</strong> giúp bạn khám phá mọi miền đất nước tiết kiệm nhất!</p>
+    <section class="hero" role="region" aria-label="Giới thiệu trang">
+        <div class="inner">
+            <h2>Khám phá Việt Nam</h2>
+            <p>Hành trình tuyệt vời với chi phí sinh viên. Website chia sẻ <strong>du lịch sinh viên</strong>, <strong>du lịch giá rẻ</strong>, <strong>kinh nghiệm du lịch</strong>, <strong>lịch trình du lịch</strong> và <strong>mẹo du lịch</strong> giúp bạn khám phá mọi miền đất nước tiết kiệm nhất!</p>
+        </div>
     </section>
 
-    <main class="container">
+    <main id="main-content" class="container" role="main">
         <!-- Điểm đến -->
-        <section id="dest">
-            <h2 class="section-title">Điểm đến nổi bật</h2>
-            <div class="grid">
-                <article class="card">
-                    <a href="danang.html" style="text-decoration:none;color:inherit">
-                        <img src="https://cdn11.dienmaycholon.vn/filewebdmclnew/DMCL21/Picture/News/News_expe_12587/12587.png" alt="Đà Nẵng">
+        <section id="dest" aria-labelledby="dest-title">
+            <h2 id="dest-title" class="section-title">Điểm đến nổi bật</h2>
+            <div class="grid" role="list">
+                <article class="card" role="listitem">
+                    <a href="danang.html" style="text-decoration:none;color:inherit;display:block" aria-label="Đà Nẵng - Xem chi tiết">
+                        <img
+                          src="https://cdn11.dienmaycholon.vn/filewebdmclnew/DMCL21/Picture/News/News_expe_12587/12587.png"
+                          alt="Đà Nẵng"
+                          loading="lazy"
+                          srcset="
+                            https://cdn11.dienmaycholon.vn/filewebdmclnew/DMCL21/Picture/News/News_expe_12587/12587.png 480w,
+                            https://cdn11.dienmaycholon.vn/filewebdmclnew/DMCL21/Picture/News/News_expe_12587/12587.png 800w
+                          "
+                          sizes="(max-width:600px) 100vw, 33vw"
+                        >
                         <h3>Đà Nẵng</h3>
                         <p>Biển xanh, cầu Rồng, ẩm thực đường phố.</p>
                     </a>
                 </article>
-                <article class="card">
-                    <a href="hanoi.html" style="text-decoration:none;color:inherit">
-                        <img src="https://motogo.vn/wp-content/uploads/2023/10/du-lich-ha-noi-1-minh-19.jpg" alt="Hà Nội">
+
+                <article class="card" role="listitem">
+                    <a href="hanoi.html" style="text-decoration:none;color:inherit;display:block" aria-label="Hà Nội - Xem chi tiết">
+                        <img src="https://motogo.vn/wp-content/uploads/2023/10/du-lich-ha-noi-1-minh-19.jpg" alt="Hà Nội" loading="lazy"
+                             srcset="https://motogo.vn/wp-content/uploads/2023/10/du-lich-ha-noi-1-minh-19.jpg 480w, https://motogo.vn/wp-content/uploads/2023/10/du-lich-ha-noi-1-minh-19.jpg 800w"
+                             sizes="(max-width:600px) 100vw, 33vw">
                         <h3>Hà Nội</h3>
                         <p>Di sản, cà phê vỉa hè và văn hóa đậm đà.</p>
                     </a>
                 </article>
-                <article class="card">
-                    <a href="phuquoc.html" style="text-decoration:none;color:inherit">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSr9_5l4vtJMZNFcl6mwFcpW_oM_3CGqKLoZg&s" alt="Phú Quốc">
+
+                <article class="card" role="listitem">
+                    <a href="phuquoc.html" style="text-decoration:none;color:inherit;display:block" aria-label="Phú Quốc - Xem chi tiết">
+                        <img src="https://phapluatxahoi.kinhtedothi.vn/stores/news_dataimages/2025/102025/26/09/5329f96e9c9b016e8c2ad3c19fc40323.png?rt=20251026090903" alt="Phú Quốc" loading="lazy"
+                             srcset="https://phapluatxahoi.kinhtedothi.vn/stores/news_dataimages/2025/102025/26/09/5329f96e9c9b016e8c2ad3c19fc40323.png?rt=20251026090903 480w, https://phapluatxahoi.kinhtedothi.vn/stores/news_dataimages/2025/102025/26/09/5329f96e9c9b016e8c2ad3c19fc40323.png?rt=20251026090903 800w"
+                             sizes="(max-width:600px) 100vw, 33vw">
                         <h3>Phú Quốc</h3>
                         <p>Bãi biển hoang sơ, lặn ngắm san hô.</p>
                     </a>
                 </article>
-                <article class="card">
-                    <a href="meo.html" style="text-decoration:none;color:inherit">
-                        <img src="https://cms.cybershow.vn/wp-content/uploads/2019/04/ke-hoach-du-lich-5.jpg" alt="Mẹo du lịch">
+
+                <article class="card" role="listitem">
+                    <a href="meo.html" style="text-decoration:none;color:inherit;display:block" aria-label="Mẹo du lịch - Xem chi tiết">
+                        <img src="https://cms.cybershow.vn/wp-content/uploads/2019/04/ke-hoach-du-lich-5.jpg" alt="Mẹo du lịch" loading="lazy"
+                             srcset="https://cms.cybershow.vn/wp-content/uploads/2019/04/ke-hoach-du-lich-5.jpg 480w, https://cms.cybershow.vn/wp-content/uploads/2019/04/ke-hoach-du-lich-5.jpg 800w"
+                             sizes="(max-width:600px) 100vw, 33vw">
                         <h3>Mẹo du lịch</h3>
                         <p>Bí quyết tiết kiệm, kinh nghiệm thực tế cho sinh viên.</p>
                     </a>
                 </article>
             </div>
-
         </section>
 
         <!-- Lịch trình Đà Nẵng -->
-        <section class="itinerary" id="danang">
-            <h2 class="section-title">Lịch trình 3 ngày Đà Nẵng</h2>
+        <section class="itinerary" id="danang" aria-labelledby="danang-title">
+            <h2 id="danang-title" class="section-title">Lịch trình 3 ngày Đà Nẵng</h2>
+
             <div class="content-img">
-                <ul>
-                    <li><b>Ngày 1:</b> Biển Mỹ Khê, ăn tối hải sản.</li>
-                    <li><b>Ngày 2:</b> Sơn Trà, Linh Ứng, Hội An.</li>
-                    <li><b>Ngày 3:</b> Mua quà tại chợ địa phương.</li>
-                </ul>
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRI4E41ap61O9QmGyksSf3kgGdiTNqCGlOgBA&s" alt="Đà Nẵng">
+                <div class="text">
+                    <ul>
+                        <li><strong>Ngày 1:</strong> Biển Mỹ Khê, ăn tối hải sản.</li>
+                        <li><strong>Ngày 2:</strong> Sơn Trà, Linh Ứng, Hội An.</li>
+                        <li><strong>Ngày 3:</strong> Mua quà tại chợ địa phương.</li>
+                    </ul>
+                </div>
+
+                <div class="media">
+                    <img
+                      src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=70"
+                      alt="Bãi biển Đà Nẵng lúc hoàng hôn"
+                      loading="lazy"
+                      srcset="
+                        https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=480&q=60 480w,
+                        https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=70 800w,
+                        https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80 1200w
+                      "
+                      sizes="(max-width:900px) 100vw, 46vw"
+                    >
+                </div>
             </div>
-          <a href="danang.html" class="more-btn">Xem thêm lịch trình </a>
 
-
-            <a href="#home" class="back-home">⬅ Quay lại</a>
+            <div class="actions">
+                <a href="danang.html" class="more-btn" aria-label="Xem thêm lịch trình Đà Nẵng">Xem thêm lịch trình</a>
+                <a href="#home" class="back-home" aria-label="Quay lại đầu trang">⬅ Quay lại</a>
+            </div>
         </section>
 
         <!-- Lịch trình Hà Nội -->
-        <section class="itinerary" id="hanoi">
-            <h2 class="section-title">Lịch trình 3 ngày Hà Nội</h2>
+        <section class="itinerary" id="hanoi" aria-labelledby="hanoi-title">
+            <h2 id="hanoi-title" class="section-title">Lịch trình 3 ngày Hà Nội</h2>
+
             <div class="content-img">
-                <ul>
-                    <li><b>Ngày 1:</b> Hồ Gươm, phố cổ, chợ Đồng Xuân.</li>
-                    <li><b>Ngày 2:</b> Văn Miếu, Lăng Bác, Hoàng thành Thăng Long.</li>
-                    <li><b>Ngày 3:</b> Cà phê trứng, mua quà lưu niệm.</li>
-                </ul>
-                <img src="data:image/jpeg;base64,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" alt="Hà Nội">
+                <div class="text">
+                    <ul>
+                        <li><strong>Ngày 1:</strong> Hồ Gươm, phố cổ, chợ Đồng Xuân.</li>
+                        <li><strong>Ngày 2:</strong> Văn Miếu, Lăng Bác, Hoàng thành Thăng Long.</li>
+                        <li><strong>Ngày 3:</strong> Cà phê trứng, mua quà lưu niệm.</li>
+                    </ul>
+                </div>
+
+                <div class="media">
+                    <img
+                      src="https://motogo.vn/wp-content/uploads/2023/10/du-lich-ha-noi-1-minh-19.jpg"
+                      alt="Phố cổ Hà Nội"
+                      loading="lazy"
+                      srcset="
+                        https://motogo.vn/wp-content/uploads/2023/10/du-lich-ha-noi-1-minh-19.jpg 480w,
+                        https://motogo.vn/wp-content/uploads/2023/10/du-lich-ha-noi-1-minh-19.jpg 800w
+                      "
+                      sizes="(max-width:900px) 100vw, 46vw"
+                    >
+                </div>
             </div>
-          <a href="hanoi.html" class="more-btn">Xem thêm lịch trình </a>
 
-
-            <a href="#home" class="back-home">⬅ Quay lại</a>
+            <div class="actions">
+                <a href="hanoi.html" class="more-btn" aria-label="Xem thêm lịch trình Hà Nội">Xem thêm lịch trình</a>
+                <a href="#home" class="back-home" aria-label="Quay lại đầu trang">⬅ Quay lại</a>
+            </div>
         </section>
 
         <!-- Lịch trình Phú Quốc -->
-        <section class="itinerary" id="phuquoc">
-            <h2 class="section-title">Lịch trình 3 ngày Phú Quốc</h2>
-            <div class="content-img">
-                <ul>
-                    <li><b>Ngày 1:</b> Tắm biển Bãi Sao, ăn hải sản.</li>
-                    <li><b>Ngày 2:</b> VinWonders & Safari.</li>
-                    <li><b>Ngày 3:</b> Chợ Dương Đông, mua đặc sản.</li>
-                </ul>
-                <img src="data:image/jpeg;base64,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" alt="Phú Quốc">
-            	
-             </div>
-          <a href="phuquoc.html" class="more-btn">Xem thêm lịch trình </a>
+        <!-- Lịch trình Phú Quốc (thay thế phần cũ bằng đoạn này) -->
+<section class="itinerary" id="phuquoc" aria-labelledby="phuquoc-title">
+  <h2 id="phuquoc-title" class="section-title">Lịch trình 3 ngày Phú Quốc</h2>
+  <div class="content-img">
+    <div class="text">
+      <ul>
+        <li><strong>Ngày 1:</strong> Tắm biển Bãi Sao, ăn hải sản.</li>
+        <li><strong>Ngày 2:</strong> VinWonders &amp; Safari.</li>
+        <li><strong>Ngày 3:</strong> Chợ Dương Đông, mua đặc sản.</li>
+      </ul>
+    </div>
 
+    <div class="media">
+      <!-- Dùng URL ảnh tin cậy (HTTPS). Nếu muốn thay ảnh khác, đảm bảo đường dẫn bắt đầu bằng https:// -->
+      <img
+        src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80"
+        alt="Bãi biển Phú Quốc"
+        loading="lazy"
+        style="display:block; width:100%; height:auto; border-radius:14px; box-shadow:0 12px 30px rgba(0,0,0,0.12);"
+      />
+    </div>
+  </div>
 
-            <a href="#home" class="back-home">⬅ Quay lại</a>
-        </section>
-           
-            
-            
-                
-        </section>
+  <div style="margin-top:12px;">
+    <a href="phuquoc.html" class="more-btn">Xem thêm lịch trình</a>
+    <a href="#home" class="back-home" style="margin-left:10px;">⬅ Quay lại</a>
+  </div>
+</section>
+
 
         <!-- Mẹo -->
-        <section class="tips" id="tips">
-            <h2 class="section-title">Mẹo sinh viên</h2>
+        <section class="tips" id="tips" aria-labelledby="tips-title">
+            <h2 id="tips-title" class="section-title">Mẹo sinh viên</h2>
             <div class="content-img">
-                <ul>
-                    <li>So sánh vé máy bay trước khi đặt.</li>
-                    <li>Ăn ở quán địa phương để tiết kiệm.</li>
-                    <li>Dùng thẻ sinh viên giảm giá.</li>
-                </ul>
-                <img src="https://cms.cybershow.vn/wp-content/uploads/2019/04/ke-hoach-du-lich-5.jpg" alt="Mẹo du lịch">
+                <div class="text">
+                    <ul>
+                        <li>So sánh vé máy bay trước khi đặt.</li>
+                        <li>Ăn ở quán địa phương để tiết kiệm.</li>
+                        <li>Dùng thẻ sinh viên giảm giá.</li>
+                    </ul>
+                </div>
+                <div class="media">
+                    <img
+                      src="https://cms.cybershow.vn/wp-content/uploads/2019/04/ke-hoach-du-lich-5.jpg"
+                      alt="Mẹo du lịch"
+                      loading="lazy"
+                      srcset="https://cms.cybershow.vn/wp-content/uploads/2019/04/ke-hoach-du-lich-5.jpg 480w, https://cms.cybershow.vn/wp-content/uploads/2019/04/ke-hoach-du-lich-5.jpg 800w"
+                      sizes="(max-width:900px) 100vw, 46vw"
+                    >
+                </div>
             </div>
-          <a href="meo.html" class="more-btn">Xem thêm lịch trình </a>
-
-
-            <a href="#home" class="back-home">⬅ Quay lại</a>
+            <div class="actions">
+                <a href="meo.html" class="more-btn" aria-label="Xem thêm mẹo du lịch">Xem thêm mẹo</a>
+                <a href="#home" class="back-home" aria-label="Quay lại đầu trang">⬅ Quay lại</a>
+            </div>
         </section>
 
         <!-- Liên hệ -->
-        <section class="contact" id="contact">
-            <h2 class="section-title">Liên hệ</h2>
-            <form onsubmit="event.preventDefault();alert('Form mẫu!');">
-                <input type="text" placeholder="Tên" required>
-                <input type="email" placeholder="Email" required>
-                <textarea rows="3" placeholder="Nội dung" required></textarea>
+        <section class="contact" id="contact" aria-labelledby="contact-title">
+            <h2 id="contact-title" class="section-title">Liên hệ</h2>
+            <form onsubmit="event.preventDefault(); alert('Cảm ơn! Đây là form mẫu.');" aria-label="Form liên hệ">
+                <input type="text" placeholder="Tên" required aria-label="Tên">
+                <input type="email" placeholder="Email" required aria-label="Email">
+                <textarea rows="3" placeholder="Nội dung" required aria-label="Nội dung"></textarea>
                 <button type="submit">Gửi</button>
             </form>
-            <a href="#home" class="back-home">⬅ Quay lại</a>
+            <a href="#home" class="back-home" style="margin-top:12px; display:inline-block;">⬅ Quay lại</a>
         </section>
     </main>
 
     <!-- Social share block (homepage) -->
-    <div class="container">
+    <div class="container" style="margin-bottom:26px;">
         <h2 class="section-title">Chia sẻ trang</h2>
-        <div class="share-buttons" aria-label="Chia sẻ trang">
-            <a class="share-btn facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://dulichsinhvien.rf.gd/index.html" target="_blank" rel="noopener noreferrer">Facebook</a>
-            <a class="share-btn twitter" href="https://twitter.com/intent/tweet?url=https://dulichsinhvien.rf.gd/index.html&text=Kh%C3%A1m%20ph%C3%A1%20Vi%E1%BB%87t%20Nam%20v%E1%BB%9Bi%20Du%20L%E1%BB%8Bch%20Sinh%20Vi%C3%AAn" target="_blank" rel="noopener noreferrer">Twitter</a>
-            <a class="share-btn linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://dulichsinhvien.rf.gd/index.html&title=Du%20L%E1%BB%8Bch%20Sinh%20Vi%C3%AAn" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-            <a class="share-btn whatsapp" href="https://api.whatsapp.com/send?text=Kh%C3%A1m%20ph%C3%A1%20Vi%E1%BB%87t%20Nam%20-%20https://dulichsinhvien.rf.gd/index.html" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+        <div class="share-buttons" aria-label="Chia sẻ trang" role="navigation" style="display:flex;gap:10px;flex-wrap:wrap;">
+            <a class="share-btn facebook more-btn" href="https://www.facebook.com/sharer/sharer.php?u=https://webdulich.vercel.app/index.html" target="_blank" rel="noopener noreferrer">Facebook</a>
+            <a class="share-btn twitter more-btn" href="https://twitter.com/intent/tweet?url=https://webdulich.vercel.app/index.html&text=Khám%20phá%20Việt%20Nam%20với%20Du%20Lịch%20Sinh%20Viên" target="_blank" rel="noopener noreferrer">Twitter</a>
+            <a class="share-btn linkedin more-btn" href="https://www.linkedin.com/shareArticle?mini=true&url=https://webdulich.vercel.app/index.html&title=Du%20Lịch%20Sinh%20Viên" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a class="share-btn whatsapp more-btn" href="https://api.whatsapp.com/send?text=Khám%20phá%20Việt%20Nam%20-%20https://webdulich.vercel.app/index.html" target="_blank" rel="noopener noreferrer">WhatsApp</a>
         </div>
     </div>
 
-    <footer>
-        © 2025 Du Lịch Sinh Viên | Tham khảo thêm tại <a href="https://vietnamtourism.gov.vn/" target="_blank" rel="noopener" style="color:#fff;text-decoration:underline;">Tổng cục Du lịch Việt Nam</a>
+    <footer role="contentinfo">
+        © 2025 Du Lịch Sinh Viên | Tham khảo thêm tại
+        <a href="https://vietnamtourism.gov.vn/" target="_blank" rel="noopener" style="color:#fff;text-decoration:underline;">Tổng cục Du lịch Việt Nam</a>
     </footer>
 </body>
 </html>
