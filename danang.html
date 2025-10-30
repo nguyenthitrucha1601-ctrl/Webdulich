@@ -177,12 +177,23 @@
   display: block; /* giúp margin auto hiệu quả */
 }
 
+   .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      border: 0;
+    }
   </style>
 </head>
 <body>
   <header>
-  <div class="site-title"><a href="index.html" style="color:inherit;text-decoration:none;">🌍 Du Lịch Sinh Viên</a> — Đà Nẵng</div>
+  <h1 class="site-title"><a href="index.html" style="color:inherit;text-decoration:none;">🌍 Du Lịch Sinh Viên</a> — Đà Nẵng</h1>
     <nav>
+      <h2 class="visually-hidden">Menu chính</h2>
       <a href="index.html">Trang chủ</a>
       <a href="hanoi.html">Hà Nội</a>
       <a href="phuquoc.html">Phú Quốc</a>

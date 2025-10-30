@@ -325,6 +325,17 @@
             }
             .card img { height:160px; }
         }
+
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
+        }
     </style>
     
 </head>
@@ -335,6 +346,7 @@
     <header id="home" role="banner">
         <h1>Du Lịch Sinh Viên</h1>
         <nav role="navigation" aria-label="Menu chính">
+            <h2 class="visually-hidden">Menu chính</h2>
             <a href="#dest">Điểm đến</a>
             <a href="#danang">Đà Nẵng</a>
             <a href="#hanoi">Hà Nội</a>
