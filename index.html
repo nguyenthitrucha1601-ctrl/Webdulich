@@ -336,6 +336,49 @@
             clip: rect(0, 0, 0, 0);
             border: 0;
             }
+            
+
+            .share-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 16px;
+            }
+
+            .share-btn {
+            display: inline-block;
+            padding: 10px 18px;
+            border-radius: 30px;
+            font-weight: 600;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+            }
+
+            /* Màu riêng cho từng mạng xã hội */
+            .share-btn.twitter {
+            background-color: #1DA1F2;
+            }
+            .share-btn.linkedin {
+            background-color: #0077B5;
+            }
+            .share-btn.whatsapp {
+            background-color: #25D366;
+            }
+
+            /* Hiệu ứng hover */
+            .share-btn:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+            }
+            .share-btn.facebook {
+  background-color: #1877F2; /* Màu xanh đặc trưng Facebook */
+}
+
+            
+</style>
     </style>
     
 </head>
@@ -570,29 +613,32 @@
         </section>
     </main>
 
-    <!-- Social share block (homepage) -->
+   <!-- Social share block (homepage) -->
 <div class="container" style="margin-bottom:26px;">
   <h2 class="section-title">Chia sẻ trang</h2>
-  <div class="share-buttons" aria-label="Chia sẻ trang" role="navigation" style="display:flex;gap:10px;flex-wrap:wrap;">
-    <!-- Facebook -->
-    <a class="share-btn facebook more-btn"
+  <div class="share-container" aria-label="Chia sẻ trang" role="navigation">
+    <a class="share-btn facebook"
        href="https://www.facebook.com/sharer/sharer.php?u=https://webdulich.vercel.app/index.html"
        target="_blank" rel="noopener noreferrer">
        Facebook
     </a>
 
-    <!-- Zalo -->
-    <a class="share-btn zalo more-btn"
-       href="https://zalo.me/share?url=https://webdulich.vercel.app/index.html"
+    <a class="share-btn twitter"
+       href="https://twitter.com/intent/tweet?url=https://webdulich.vercel.app/index.html&text=Khám%20phá%20du%20lịch%20sinh%20viên!"
        target="_blank" rel="noopener noreferrer">
-       Zalo
+       Twitter
     </a>
 
-    <!-- Instagram (mạng này không có share trực tiếp nên mình dẫn tới profile của bạn) -->
-    <a class="share-btn instagram more-btn"
-       href="https://www.instagram.com/dulichsinhvien/"
+    <a class="share-btn linkedin"
+       href="https://www.linkedin.com/sharing/share-offsite/?url=https://webdulich.vercel.app/index.html"
        target="_blank" rel="noopener noreferrer">
-       Instagram
+       LinkedIn
+    </a>
+
+    <a class="share-btn whatsapp"
+       href="https://api.whatsapp.com/send?text=Khám%20phá%20du%20lịch%20sinh%20viên:%20https://webdulich.vercel.app/index.html"
+       target="_blank" rel="noopener noreferrer">
+       WhatsApp
     </a>
   </div>
 </div>
